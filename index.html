@@ -108,26 +108,31 @@
           var tweet = streams.home[index];
 
           makeTwittle(tweet).appendTo($body);
-          index -= 1;
+          index--;
         }
 
-        //////////////////////////////
-        // OBSERVE NEW TWITTLE FEED //
-        //////////////////////////////
+        ////////////////////////////
+        // LIVE PUSH TWITTLE FEED //
+        ////////////////////////////
 
-        var oldNumTweets = $('.tweet').length;
+        var newNumTweets = 0;
+        var $newMsg = $('<div id="viewNew"></div>');
+
         Array.observe(streams.home, function(changes) {
           _.each(changes, function(change) {
+            // var oldNumTweets = $('.tweet').length;
             // console.log('tweet length:'), oldNumTweets;
-            // var newNumTweets = streams.home - oldNumTweets;
-            //
-            // if (newNumTweets) {
-            //   console.log('New Tweets', newNumTweets);
-            // }
+            // console.log('stream.home:', streams.home.lengtj)
+            newNumTweets++;
 
-            var tweet = streams.home[change.index]
-            makeTwittle(tweet).prependTo($body);
-          });
+            if (newNumTweets) {
+              $newMsg.text('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
+              $newMsg.prependTo($body);
+              //console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
+            }
+          //var tweet = streams.home[change.index]
+          //makeTwittle(tweet).prependTo($body);
+         });
         });
       });
 
