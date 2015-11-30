@@ -1,0 +1,36 @@
+
+.tweet > a {
+  font-weight: bold;
+  cursor: pointer;
+}
+body {
+  margin: 50px 0 10.8px;
+  background: #f5f8fa;
+}
+
+#script-body {
+  padding-top: 10px;
+}
+
+#script-body > div {
+  display: block;
+  padding: 15px;
+  background: #fff;
+  border: 1px solid #e1e8ed;
+  border-top: 0px;
+}
+
+#script-body > div:first-child {
+  border-top: 1px solid #e1e8ed;
+}
+
+.tweet > a {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+time {
+  float: right;
+  color: #8899a6;
+  font-size: 0.8em;
+}
