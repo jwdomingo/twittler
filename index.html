@@ -92,7 +92,12 @@
           var $timestamp = $('<time></time>');
           $timestamp.text(twittle.created_at);
 
-          return $tweet.append($user).append($timestamp);
+          var $message = $('<p></p>');
+          $message.text(twittle.message);
+
+          return $tweet.append($user)
+                       .append($timestamp)
+                       .append($message);
         };
 
         ///////////////////////////////
