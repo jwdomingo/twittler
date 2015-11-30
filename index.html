@@ -117,6 +117,7 @@
 
         var newNumTweets = 0;
         var $newMsg = $('<div id="viewNew"></div>');
+        var $par = $('<p></p>');
 
         Array.observe(streams.home, function(changes) {
           _.each(changes, function(change) {
@@ -126,9 +127,9 @@
             newNumTweets++;
 
             if (newNumTweets) {
-              $newMsg.text('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
-              $newMsg.prependTo($body);
-              //console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
+              $par.text('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
+              $newMsg.append($par).prependTo($body);
+              console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
             }
           //var tweet = streams.home[change.index]
           //makeTwittle(tweet).prependTo($body);
