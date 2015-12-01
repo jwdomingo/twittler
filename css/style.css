@@ -24,9 +24,16 @@ body {
   border-top: 1px solid #e1e8ed;
 }
 
-.tweet > a {
-  font-weight: bold;
+#script-body > .tweet {
   cursor: pointer;
+}
+
+#script-body > .tweet:hover {
+  background-color: #f5f8fa;
+}
+
+#script-body > .tweet > a {
+  font-weight: bold;
 }
 
 time {
@@ -34,3 +41,11 @@ time {
   color: #8899a6;
   font-size: 0.8em;
 }
+
+#script-body > #viewNew {
+  background-color: #f5f8fa;
+}
+
+#script-body > #viewNew > p {
+  margin: 0;
+  color: #ff3300;
