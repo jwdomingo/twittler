@@ -89,13 +89,16 @@
           var $user =  $('<a></a>');
           $user.text('@' + twittle.user);
 
+          var $avatar = $('<img class="avatar" src="' + twittle.avatar + '"></img>')
+
           var $timestamp = $('<time></time>');
           $timestamp.text(twittle.created_at);
 
           var $message = $('<p></p>');
           $message.text(twittle.message);
 
-          return $tweet.append($user)
+          return $tweet.append($avatar)
+                       .append($user)
                        .append($timestamp)
                        .append($message);
         };
@@ -123,13 +126,13 @@
           _.each(changes, function(change) {
             // var oldNumTweets = $('.tweet').length;
             // console.log('tweet length:'), oldNumTweets;
-            // console.log('stream.home:', streams.home.lengtj)
+            // console.log('stream.home:', streams.home.length)
             newNumTweets++;
 
             if (newNumTweets) {
               $par.text('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
               $newMsg.append($par).prependTo($body);
-              console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
+              // console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
             }
           //var tweet = streams.home[change.index]
           //makeTwittle(tweet).prependTo($body);
