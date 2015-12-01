@@ -36,7 +36,15 @@ body {
   font-weight: bold;
 }
 
-time {
+#script-body > .tweet > img.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  float: left;
+  margin-right: 15px;
+}
+
+#script-body > .tweet > time {
   float: right;
   color: #8899a6;
   font-size: 0.8em;
