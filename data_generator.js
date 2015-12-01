@@ -7,10 +7,15 @@
 window.streams = {};
 streams.home = [];
 streams.users = {};
+streams.avatars = {};
 streams.users.shawndrost = [];
+streams.avatars.shawndrost = 'https://pbs.twimg.com/profile_images/586651979348250624/3n3kd_5P.jpg';
 streams.users.sharksforcheap = [];
+streams.avatars.sharksforcheap = 'https://pbs.twimg.com/profile_images/3737419103/b81bf3e4ba350fec48493784880241c2.jpeg';
 streams.users.mracus = [];
+streams.avatars.mracus = 'https://pbs.twimg.com/profile_images/460312331923107840/m1Fip-Vt.jpeg';
 streams.users.douglascalhoun = [];
+streams.avatars.douglascalhoun = 'https://pbs.twimg.com/profile_images/1831644430/DSC02750.JPG';
 window.users = Object.keys(streams.users);
 
 // utility function for adding tweets to our data structures
