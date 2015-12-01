@@ -8,7 +8,7 @@
 
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <script src="http://underscorejs.org/underscore.js"></script>
+    <script src="scripts/underscore.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   </head>
@@ -121,6 +121,7 @@
         var newNumTweets = 0;
         var $newMsg = $('<div id="viewNew"></div>');
         var $par = $('<p class="text-center"></p>');
+        $newMsg.append($par).prependTo($body).hide();
 
         Array.observe(streams.home, function(changes) {
           _.each(changes, function(change) {
@@ -131,12 +132,22 @@
 
             if (newNumTweets) {
               $par.text('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
-              $newMsg.append($par).prependTo($body);
-              // console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
+              if ($('#viewNew').is(":hidden")) {
+                $newMsg.append($par).prependTo($body).removeClass('noNewTwittles').slideDown();
+              }
+
+              //console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
             }
           //var tweet = streams.home[change.index]
           //makeTwittle(tweet).prependTo($body);
          });
+        });
+
+        ///////////////////////
+        // LOAD NEW TWITTLES //
+        ///////////////////////
+        $('#viewNew').on('click', function(e) {
+          console.log('e:', e);
         });
       });
 
