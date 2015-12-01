@@ -106,7 +106,7 @@
         var makeTwittle = function(twittle) {
           var $tweet = $('<div class="tweet"></div>');
 
-          var $user =  $('<a class="username"></a>');
+          var $user =  $('<a class="username" data-user="' + twittle.user + '"></a>');
           $user.text('@' + twittle.user);
 
           var $avatar = $('<img class="avatar" src="' + twittle.avatar + '"></img>')
@@ -181,7 +181,20 @@
         // FILTER USER TWITTLES //
         //////////////////////////
         $('.tweet').on('click', '.username', function() {
-          console.log('username  :', $(this).text());
+          var username =  $(this).data('user');
+
+          var $modal = $('#user-modal');
+          console.log('username:', username);
+          var index = streams.users[username].length - 1;
+
+
+          while(index >= 0){
+            var tweet = streams.users[username][index];
+            console.log('index:', index);
+            console.log('tweet:', tweet);
+            $modal.append(makeTwittle(tweet));
+            index--;
+          }
         });
       });
     </script>
