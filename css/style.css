@@ -17,11 +17,11 @@ body {
   padding: 15px;
   background: #fff;
   border: 1px solid #e1e8ed;
-  border-top: 0px;
+  border-bottom: 0px;
 }
 
-#script-body > div:first-child {
-  border-top: 1px solid #e1e8ed;
+#script-body > div:last-child {
+  border-bottom: 1px solid #e1e8ed;
 }
 
 #script-body > .tweet {
@@ -51,7 +51,12 @@ body {
 }
 
 #script-body > #viewNew {
+  cursor: pointer;
   background-color: #f5f8fa;
+}
+
+#script-body > #viewNew:hover {
+  background-color: #e1e8ed;
 }
 
 #script-body > #viewNew > p {
