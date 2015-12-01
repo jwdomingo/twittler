@@ -8,6 +8,7 @@
 
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="css/bootstrap/js/bootstrap.min.js"></script>
     <script src="scripts/underscore.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -66,15 +67,30 @@
     </header>
 
     <div class="container">
+      <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#user-modal">Modal</button>
+
+      <div id="user-modal" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button class="close" type="button" data-dismiss="modal">&times;</button>
+              <h3>Test</h3>
+            </div><!-- .modal-header -->
+          </div><!-- .modal-content -->
+        </div><!-- .modal-dialog -->
+      </div><!-- #user-modal -->
+    </div><!-- .container -->
+
+    <div class="container">
 
       <div class="row">
-        <div class="col-md-2"></div>
+        <div class="col-md-2"></div><!-- .col-md-2 -->
 
-        <div id="script-body" class="col-md-8"></div>
+        <div id="script-body" class="col-md-8"></div><!-- #script-body -->
 
-        <div class="col-md-2"></div>
-      </div>
-    </div>
+        <div class="col-md-2"></div><!-- .col-md-2 -->
+      </div><!-- .row -->
+    </div><!-- .container -->
 
     <script>
 
