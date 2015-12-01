@@ -64,10 +64,14 @@
         </div>
       </nav>
     </header>
+
     <div class="container">
+
       <div class="row">
         <div class="col-md-2"></div>
+
         <div id="script-body" class="col-md-8"></div>
+
         <div class="col-md-2"></div>
       </div>
     </div>
@@ -86,7 +90,7 @@
         var makeTwittle = function(twittle) {
           var $tweet = $('<div class="tweet"></div>');
 
-          var $user =  $('<a></a>');
+          var $user =  $('<a class="username"></a>');
           $user.text('@' + twittle.user);
 
           var $avatar = $('<img class="avatar" src="' + twittle.avatar + '"></img>')
@@ -124,10 +128,7 @@
         $newMsg.append($par).prependTo($body).hide();
 
         Array.observe(streams.home, function(changes) {
-          _.each(changes, function(change) {
-            // var oldNumTweets = $('.tweet').length;
-            // console.log('tweet length:'), oldNumTweets;
-            // console.log('stream.home:', streams.home.length)
+          _.each(changes, function() {
             newNumTweets++;
 
             if (newNumTweets) {
@@ -138,8 +139,6 @@
 
               //console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
             }
-          //var tweet = streams.home[change.index]
-          //makeTwittle(tweet).prependTo($body);
          });
         });
 
@@ -147,15 +146,12 @@
         // LOAD NEW TWITTLES //
         ///////////////////////
         $('#viewNew').on('click', function() {
-
-          $('#viewNew').hide('slow')
-
           var oldNumTweets = $('.tweet').length;
-          console.log('oldNumTweets:', oldNumTweets);
 
           var index = oldNumTweets + newNumTweets - 1;
-          console.log('index:', index);
           newNumTweets = 0;
+
+          $('#viewNew').hide('slow')
 
           while(index - newNumTweets >= oldNumTweets){
             var tweet = streams.home[index];
@@ -164,8 +160,14 @@
             index--;
           }
         });
-      });
 
+        //////////////////////////
+        // FILTER USER TWITTLES //
+        //////////////////////////
+        $('.tweet').on('click', '.username', function() {
+          console.log('username  :', $(this).text());
+        });
+      });
     </script>
   </body>
 </html>
