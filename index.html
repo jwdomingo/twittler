@@ -74,7 +74,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button class="close" type="button" data-dismiss="modal">&times;</button>
-              <h3 class="user-heading"></h3>
+              <h3 class="user-heading">Twittler</h3>
             </div><!-- .modal-header -->
             <div class="modal-body">
             </div><!-- .modal-body -->
@@ -163,10 +163,13 @@
         ///////////////////////
         // LOAD NEW TWITTLES //
         ///////////////////////
-        $('#viewNew').on('click', function() {
+        $('#viewNew').on('click', function(e) {
+          e.stopPropagation();
+
           var oldNumTweets = $('.tweet').length;
 
           var index = oldNumTweets + newNumTweets - 1;
+          console.log('index:', index);
           newNumTweets = 0;
 
           $('#viewNew').hide('slow')
@@ -182,21 +185,30 @@
         //////////////////////////
         // FILTER USER TWITTLES //
         //////////////////////////
-        $('.tweet').on('click', '.username', function() {
-          var username =  $(this).data('user');
+        $('.tweet').on('click', '.username', function(e) {
+          e.stopPropagation();
 
-          var $modal = $('#user-modal');
-          console.log('username:', username);
-          var index = streams.users[username].length - 1;
+          var $modal = $('#user-modal'),
+              username =  $(this).data('user'),
+              index = streams.users[username].length - 1;
 
+          var $avatar = $('<img class="user-avatar" src="assets/avatars/' + username + '.jpg"></img>')
+
+          $modal.find('.tweet').remove();
+
+          $modal.find('.modal-header').find('.user-heading')
+                .text('@' + username)
+                .append($avatar);
 
           while(index >= 0){
             var tweet = streams.users[username][index];
-            console.log('index:', index);
-            console.log('tweet:', tweet);
-            $modal.append(makeTwittle(tweet));
+
+            $modal.find('.modal-body').append(makeTwittle(tweet));
+            $modal.find('.avatar').remove();
             index--;
           }
+
+          $modal.modal('show');
         });
       });
     </script>
