@@ -133,7 +133,7 @@
             if (newNumTweets) {
               $par.text('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
               if ($('#viewNew').is(":hidden")) {
-                $newMsg.append($par).prependTo($body).removeClass('noNewTwittles').slideDown();
+                $newMsg.append($par).prependTo($body).removeClass('noNewTwittles').slideDown('slow');
               }
 
               //console.log('View ' + newNumTweets + ' new Twittle' + ((newNumTweets > 1) ? 's' : ''));
@@ -146,8 +146,23 @@
         ///////////////////////
         // LOAD NEW TWITTLES //
         ///////////////////////
-        $('#viewNew').on('click', function(e) {
-          console.log('e:', e);
+        $('#viewNew').on('click', function() {
+
+          $('#viewNew').hide('slow')
+
+          var oldNumTweets = $('.tweet').length;
+          console.log('oldNumTweets:', oldNumTweets);
+
+          var index = oldNumTweets + newNumTweets - 1;
+          console.log('index:', index);
+          newNumTweets = 0;
+
+          while(index - newNumTweets >= oldNumTweets){
+            var tweet = streams.home[index];
+
+            makeTwittle(tweet).prependTo($body).hide().slideDown('slow');
+            index--;
+          }
         });
       });
 
