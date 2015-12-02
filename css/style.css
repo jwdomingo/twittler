@@ -8,8 +8,16 @@ body {
   background: #f5f8fa;
 }
 
-#script-body, .modal-body {
+#script-body {
   padding-top: 10px;
+}
+
+.modal-body {
+  background-color: #f5f8fa;
+}
+
+.modal-header {
+  background-color: #e1e8ed;
 }
 
 #script-body > div, .modal-body > div {
