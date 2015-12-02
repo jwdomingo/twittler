@@ -8,11 +8,11 @@ body {
   background: #f5f8fa;
 }
 
-#script-body {
+#script-body, .modal-body {
   padding-top: 10px;
 }
 
-#script-body > div {
+#script-body > div, .modal-body > div {
   display: block;
   padding: 15px;
   background: #fff;
@@ -20,23 +20,23 @@ body {
   border-bottom: 0px;
 }
 
-#script-body > div:last-child {
+#script-body > div:last-child, .modal-body > div:last-child {
   border-bottom: 1px solid #e1e8ed;
 }
 
-#script-body > .tweet {
+#script-body > .tweet, .modal-body > .tweet {
   cursor: pointer;
 }
 
-#script-body > .tweet:hover {
+#script-body > .tweet:hover, .modal-body > .tweet:hover {
   background-color: #f5f8fa;
 }
 
-#script-body > .tweet > a {
+#script-body > .tweet > a, .modal-body > .tweet > a {
   font-weight: bold;
 }
 
-#script-body > .tweet > img.avatar {
+#script-body > .tweet > img.avatar, .modal-header > img.user-avatar {
   width: 48px;
   height: 48px;
   border-radius: 5px;
@@ -44,7 +44,12 @@ body {
   margin-right: 15px;
 }
 
-#script-body > .tweet > time {
+.modal-header > img.user-avatar {
+  width: 150px;
+  height: 150px;
+}
+
+#script-body > .tweet > time, .modal-body > .tweet > time {
   float: right;
   color: #8899a6;
   font-size: 0.8em;
