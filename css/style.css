@@ -1,8 +1,30 @@
+.twittler-logo {
+  height: 36px;
+  width: 36px;
+  margin-top: -7px;
+}
+
+.navbar-nav > li {
+  float: none;
+  text-align: center;
+  display: inline-block;
+}
+
+.navbar-right {
+  float: right;
+  margin: 0;
+  display: inline-block;
+}
+
+.navbar-header {
+  display: inline-block;
+}
 
 .tweet > a {
   font-weight: bold;
   cursor: pointer;
 }
+
 body {
   margin: 50px 0 10.8px;
   background: #f5f8fa;
