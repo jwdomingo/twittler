@@ -79,7 +79,7 @@ body {
   height: 150px;
 }
 
-#script-body > .tweet > time, .modal-body > .tweet > time {
+#script-body > .tweet > .livestamp, .modal-body > .tweet > .livestamp {
   float: right;
   color: #8899a6;
   font-size: 0.8em;
