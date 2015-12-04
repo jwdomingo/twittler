@@ -119,8 +119,7 @@
 
           var $avatar = $('<img class="avatar" src="' + twittle.avatar + '"></img>')
 
-          var $timestamp = $('<time></time>');
-          $timestamp.text(twittle.created_at);
+          var $timestamp = $('<span class="livestamp"></span>').attr('data-livestamp', Math.floor(twittle.created_at/1000));
 
           var $message = $('<p></p>');
           $message.text(twittle.message);
